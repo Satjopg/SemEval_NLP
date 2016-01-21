@@ -10,7 +10,7 @@
 
 また、プログラムでストップワード（：英文内で全体の意味に関係が浅い単語）
 
-は調べない処理をしている。これはstopWord.txtに載っている。
+は調べない処理をしている。この一覧はstopWord.txtに載っている。
 
 ### comword.py
 ２文間の共通単語数を測定し、jaccard係数を利用して文間類似度を算出している。
@@ -26,7 +26,8 @@ def get_coms(a, b):
 	sent2 = set(word for word in b.split(' ') if not word in get_stopword())
 	return (len(sent1.intersection(sent2))*1.0)/(len(sent1.union(sent2))*1.0)
 ```
-入力は比較する２文、返り値はjaccard係数を用いた類似度となっている。
+入力は比較する２文、返り値はjaccard係数を用いた類似度である。
+
 
 
 
