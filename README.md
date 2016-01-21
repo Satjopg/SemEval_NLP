@@ -15,6 +15,10 @@
 ### comword.py
 ２文間の共通単語数を測定し、jaccard係数を利用して文間類似度を算出している。
 
+jaccard係数は今回の場合　(共通単語数)/(２文の総単語数)　となる。
+
+＊ただし、総単語数に重複単語の数は含まない。
+
 類似度の算出は以下のget_comsにて行われている。
 ```python
 def get_coms(a, b):
@@ -22,7 +26,7 @@ def get_coms(a, b):
 	sent2 = set(word for word in b.split(' ') if not word in get_stopword())
 	return (len(sent1.intersection(sent2))*1.0)/(len(sent1.union(sent2))*1.0)
 ```
-入力は比較する２文、返り値はjaccard係数で用いた類似度となっている。
+入力は比較する２文、返り値はjaccard係数を用いた類似度となっている。
 
 
 
