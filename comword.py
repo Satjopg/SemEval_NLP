@@ -8,10 +8,6 @@ from lcs import *
 
 model = word2vec.Word2Vec.load("example.model")
 
-# 共通単語数(全文)
-def get_com(a, b):
-	return len(set(word for word in a.split(' ')).intersection(set(word for word in b.split(' ')))) 
-
 # 共通単語数(StopWord)
 # ジャッカード係数で類似度算出
 def get_coms(a, b):
