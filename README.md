@@ -8,3 +8,4 @@
 
 である。
 
+* comword.py
