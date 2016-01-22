@@ -14,7 +14,7 @@
 ### comword.py
 ２文間の共通単語数を測定し、jaccard係数を利用して文間類似度を算出している。
 
-jaccard係数は今回の場合  
+類似度の式は  
 *(共通単語数)/(２文の総単語数)*  
 となる。  
 ＊ただし、総単語数に重複単語の数は含まない。
@@ -37,4 +37,27 @@ Pearson: 0.70017
 
 この結果は当時のSemEvalで上から15番目くらいの精度である。
 
+### lcs.py
+2文間の最長共通部分列（LCS）の長さ(以下LCS長)を求めることで類似度を求めている。
 
+類似度算出の式は
+*(LCS長)/(長い方の文の単語数)*
+である。
+
+プログラムでは、以下のget_lcsでLCS長を求めている。
+```python
+def get_lcs(a, b):
+#	stop = get_stopword()
+	sent1 = a.split(' ')
+	sent2 = b.split(' ')
+	LCS = [[0 for i in range(len(sent2) + 1)] for j in range(len(sent1) + 1)] 
+	for x in range(len(sent1)):
+		for y in range(len(sent2)):
+			if sent1[x] == sent2[y]:
+				LCS[x+1][y+1] = max(LCS[x][y+1], LCS[x+1][y], LCS[x][y]+1)
+			else:
+				LCS[x+1][y+1] = max(LCS[x][y+1], LCS[x+1][y], LCS[x][y])
+	return LCS[len(sent1)][len(sent2)]
+
+```
+動的計画法で求めている。入力は比較する２文、出力は２文のLCS長である。
