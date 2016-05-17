@@ -4,8 +4,9 @@ import re
 from lcs import get_stopword
 
 def ngram_sim(a, b, n):
-	asent = [word for word in a.split(' ') if not(word in get_stopword())]
-	bsent = [word for word in b.split(' ') if not(word in get_stopword())]
+	stop = get_stopword()
+	asent = [word for word in a.split(' ') if not(word in stop)]
+	bsent = [word for word in b.split(' ') if not(word in stop)]
 	sim = 0
 	for x in xrange(1, (n+1)):
 		sent1 = nword_set(asent, x)
