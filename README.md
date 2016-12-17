@@ -49,11 +49,11 @@ Pearson: 0.70017
 def get_lcs(a, b):
 	sent1 = a.split(' ')
 	sent2 = b.split(' ')
-<<<<<<< HEAD
+
 	LCS = [[0 for i in range(len(sent2) + 1)] for j in range(len(sent1) + 1)]
-=======
+
 	LCS = [[0 for i in range(len(sent2) + 1)] for j in range(len(sent1) + 1)] 
->>>>>>> c7b205e9da5be98349ea5e661859d23ddf990931
+
 	for x in range(len(sent1)):
 		for y in range(len(sent2)):
 			if sent1[x] == sent2[y]:
@@ -90,6 +90,4 @@ Pearson: 0.50153
 実験環境は同じである。  
 結果的には共通単語をjaccard係数で類似度を求めたものが精度が良い。  
 しかし, ペナルティの取り方などの調整次第で精度向上が見込まれる。
-=======
-ただし、word2vecなどを組み込んだりすることで精度の向上が見込める。  
->>>>>>> c7b205e9da5be98349ea5e661859d23ddf990931
+
