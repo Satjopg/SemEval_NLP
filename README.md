@@ -14,7 +14,7 @@
 ### comword.py
 ２文間の共通単語数を測定し、jaccard係数を利用して文間類似度を算出している。
 
-jaccard係数は今回の場合  
+類似度の式は  
 *(共通単語数)/(２文の総単語数)*  
 となる。  
 ＊ただし、総単語数に重複単語の数は含まない。
@@ -49,7 +49,11 @@ Pearson: 0.70017
 def get_lcs(a, b):
 	sent1 = a.split(' ')
 	sent2 = b.split(' ')
+<<<<<<< HEAD
 	LCS = [[0 for i in range(len(sent2) + 1)] for j in range(len(sent1) + 1)]
+=======
+	LCS = [[0 for i in range(len(sent2) + 1)] for j in range(len(sent1) + 1)] 
+>>>>>>> c7b205e9da5be98349ea5e661859d23ddf990931
 	for x in range(len(sent1)):
 		for y in range(len(sent2)):
 			if sent1[x] == sent2[y]:
@@ -67,6 +71,7 @@ Pearson: 0.40424
 ```
 使用したデータは共通単語数と同様のもの。  
 共通単語数のが精度が良い。  
+<<<<<<< HEAD
 ただし、word2vecなどを組み込んだりすることで精度の向上が見込める。
 
 ### ngram.py
@@ -85,3 +90,6 @@ Pearson: 0.50153
 実験環境は同じである。  
 結果的には共通単語をjaccard係数で類似度を求めたものが精度が良い。  
 しかし, ペナルティの取り方などの調整次第で精度向上が見込まれる。
+=======
+ただし、word2vecなどを組み込んだりすることで精度の向上が見込める。  
+>>>>>>> c7b205e9da5be98349ea5e661859d23ddf990931
